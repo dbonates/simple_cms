@@ -1,0 +1,21 @@
+<% @page_title = "Delete Subject" %>
+
+<%= link_to "Back to List", :action => "list" %>
+
+<div class="subject new">
+	
+	<h1>Delete Subject</h1>
+	
+	<%= form_for(:subject, :url => {:action => 'destroy', :id => @subject.id}) do |f| %>
+	
+	<h2>Deseja mesmo deletar???</h2>
+	
+		<%= render('attribs', :locals => {:@subject => @subject})%>
+	
+		<div>
+ 			<%= submit_tag("Detona RALF!") %>
+		</div>
+
+	<% end %>
+
+</div>

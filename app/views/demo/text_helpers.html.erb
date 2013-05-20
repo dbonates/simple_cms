@@ -1,0 +1,39 @@
+<%
+text = "Cras mattis consectetur purus sit amet fermentum. \nNullam quis risus eget urna mollis ornare vel eu leo. Maecenas faucibus mollis interdum. \n\nCras justo odio, dapibus ac facilisis in, egestas eget quam. \n\nCras mattis http://consectetur.com purus sit @DanielBonates amet fermentum. Cras justo@bonates.com odio, dapibus ac facilisis in, egestas eget quam."
+%>
+
+<h2>word_wrap</h2>
+<%= word_wrap(text, :line_width => 3) %>
+
+<hr />
+
+<h2>simple_format</h2>
+<%= simple_format(text) %>
+
+<hr />
+
+<h2>simple_format + word_wrap</h2>
+<%= simple_format(word_wrap(text, :line_width => 30)) %>
+
+<hr />
+
+<h2>truncate</h2>
+<%= truncate(text, :length => 40, :omission => "...") %>
+
+<hr />
+
+<h2>excerpt</h2>
+<%= excerpt(text, 'facilisis', :radius => 7, :omission => "...") %>
+
+<hr />
+
+<h2>highlight</h2>
+<%= highlight(text, 'facilisis') %>
+<hr />
+<%= highlight(text, ['facilisis','fermentum'], :highlighter => '<em>\1</em>') %>
+<hr />
+
+<h2>auto_link</h2>
+<%= auto_link(text) %>
+
+<hr />

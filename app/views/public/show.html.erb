@@ -1,0 +1,18 @@
+<h2><%= @page.name %></h2>
+            
+
+<% @page.sections.visible.sort.each do |section| %>
+<div class="section">          
+                            
+<h1><%= section.name %></h1> 
+	    
+<% case section.content_type
+   
+   when 'HTML' %>
+     <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %>
+<% when 'text' %>
+    <h2><%= section.content %></h2>
+<% end %> 
+<p>visible? <%= section.visible %></p>   	<br/>                               
+</div>
+<% end %>

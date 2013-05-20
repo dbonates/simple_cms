@@ -1,0 +1,45 @@
+<% @page_title = "AdminUsers List" %>
+
+<div class="admin list">
+	
+	<h1>Listagem</h1>
+	
+		<div id="name">
+			<h3><%= pluralize(@admin_users.size, 'administrator') %> found.</h3>
+		</div>
+	
+		<table border="0" cellspacing="5" cellpadding="5" summary="sumario" class="list">
+			
+			<tr class="header">
+				<th>Username</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th class="">Actions</th>
+			</tr>
+			<% if !@admin_users.blank? %>
+			  <% for admin_user in @admin_users %>
+			
+			<tr class="<%= cycle('odd', 'even') %>">
+				
+				<td><%= admin_user.username %></td>
+				<td><%= admin_user.name %></td>
+				<td><%= mail_to(admin_user.email, "#{admin_user.email}") %></td>
+				<td class="actions">
+					<%= link_to("Edit", {:action => 'edit', :id => admin_user.id}, :class => 'action edit') %>
+					<%= link_to("Del", {:action => 'delete', :id => admin_user.id}, :class => 'action delete') %>
+				</td>
+			</tr>
+
+			  <% end %>
+			<% else %>
+			  <p>Nenhum item para listar</p>
+			<% end %>			
+			
+			
+		</table>
+
+</div>
+
+<div id="name">
+	<%= link_to "Criar novo", {:action => "new"}, :class => 'action new'%>
+</div>

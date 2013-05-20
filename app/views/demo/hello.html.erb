@@ -1,0 +1,24 @@
+<h1>Demo#Hello</h1>
+<p>funfando!!!</p>
+
+<p>ID: <%= @id %><br />
+NEXT PG: <%= @page+1 %></p>
+
+<%= 1+ 1%>
+
+<% target = 'world'%>
+
+<%= "Hello #{target}!" %><br/>
+
+<% @array.each do |n| %>
+	n: <%= n %> <br/>
+<% end %>
+
+Olá usuário. Seu nome é:
+<%= @usuario %> <br/>
+
+<%= link_to("Link um", {:action => 'other_hello'}) %>
+
+<hr/>
+
+<%= params.inspect %>

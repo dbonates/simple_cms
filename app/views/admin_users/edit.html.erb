@@ -1,0 +1,19 @@
+<% @page_title = "AdminUser Editing" %>
+
+<%= link_to "Back to List", :action => "list" %>
+
+<div class="admin_user new">
+	
+	<h1>Edit AdminUser</h1>
+	
+	<%= form_for(:admin_user, :url => {:action => 'update', :id => @admin_user.id}) do |f| %>
+	
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div>
+ 			<%= submit_tag("Atualizar") %>
+		</div>
+
+	<% end %>
+
+</div>

@@ -1,0 +1,21 @@
+<% @page_title = "Delete AdminUser: #{@admin_user.name}" %>
+
+<%= link_to "Back to List", :action => "list" %>
+
+<div class="admin_user new">
+	
+	<h1>Delete AdminUser</h1>
+	
+	<%= form_for(:admin_user, :url => {:action => 'destroy', :id => @admin_user.id}) do |f| %>
+	
+	<h2>Deseja mesmo deletar o usuário <%= "#{@admin_user.name}" %> ?</h2>
+	
+		<%= render('attribs', :locals => {:@admin_user => @admin_user})%>
+	
+		<div>
+ 			<%= submit_tag("Detona RALF!") %>
+		</div>
+
+	<% end %>
+
+</div>

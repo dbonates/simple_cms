@@ -1,0 +1,19 @@
+<% @page_title = "Section Editing" %>
+
+<%= link_to "Back to List", :action => "list", :page_id => @page.id %>
+
+<div class="section new">
+	
+	<h1>Edit Section</h1>
+	
+	<%= form_for(:section, :url => {:action => 'update', :id => @section.id, :page_id => @page.id}) do |f| %>
+	
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div>
+ 			<%= submit_tag("Atualizar") %>
+		</div>
+
+	<% end %>
+
+</div>

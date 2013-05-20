@@ -1,0 +1,21 @@
+<%= error_messages_for(@subject) %>
+
+
+<table summary="sumario" class="show">
+	<tr>
+		<th><%= f.label(:name, "Nome") %></th>
+		<td><%= f.text_field(:name) %></td>
+	</tr>
+	 
+	<tr>
+		<th><%= f.label(:position, "Position") %></th>
+		<td><%= f.select(:position, 1..@subject_count) %></td>
+	</tr>
+
+	<tr> 
+		<th><%= f.label(:visible, "Visivel?") %></th>
+		<td><%= f.check_box(:visible) %></td>
+	</tr>
+	
+
+</table>

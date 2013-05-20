@@ -1,0 +1,47 @@
+<div class="sections list">
+	<navigation><%="/subject:#{@subject.id}/pagina:#{@page.id}" %><navigation/>
+	<%= link_to "Back to Page", :controller => 'pages', :action => "list", :id => @page.id, :subject_id => @subject.id %>
+	
+	
+	<h1>Listagem de Sections da pag: <%= "#{@page.name}"%></h1>
+	
+		<div id="name">
+			<h3><%= pluralize(@sections.size, 'section') %> found.</h3>
+		</div>
+	
+		<table border="0" cellspacing="5" cellpadding="5" summary="sumario" class="list">
+			
+			<tr class="header">
+				<th>ID</th>
+				<th>Pos</th>
+				<th>section</th>
+				<th>Visible</th>
+				<th>Content Type</th>
+				<th class="">Actions</th>
+			</tr>
+			<% if !@sections.blank? %>
+					<% for section in @sections %>
+			
+							<tr class="<%= cycle('odd', 'even') %>">
+								<td><%= section.id%></td>
+								<td><%= section.position%></td>
+								<td><%= section.name%></td>
+								<td class="center"><%= status_tag(section.visible) %></td>
+								<td class="center"><%= section.content_type %></td>
+								<td class="actions">
+									<%= link_to("Show", {:action => 'show', :page_id => @page.id, :id => section.id}, :class => 'action show') %>
+									<%= link_to("Edit", {:action => 'edit', :id => section.id, :page_id => @page.id}, :class => 'action edit') %>
+									<%= link_to("Del", {:action => 'delete', :id => section.id, :page_id => @page.id}, :class => 'action delete') %>
+								</td>
+							</tr>
+					<% end %>
+			<% end %>
+
+		
+		</table>
+
+</div>
+
+<div id="name">
+	<%= link_to "Criar nova", {:action => "new", :page_id => @page.id}, :class => 'action new'%>
+</div>

@@ -1,0 +1,52 @@
+<% @page_title = "Subject List" %>
+
+<div class="subject list">
+	
+	<h1>Subjects List</h1>
+	
+		<div id="name">
+			<h3><%= pluralize(@subjects.size, 'subject') %> found.</h3>
+		</div>
+	
+		<table border="0" cellspacing="5" cellpadding="5" summary="sumario" class="list">
+			
+			<tr class="header">
+				<th class="center">ID</th>
+				<th class="">Position</th>
+				<th>Subject</th>
+				<th>Visible</th>
+				<th>Pages</th>
+				<th class="">Actions</th>
+			</tr>
+			<% if !@subjects.blank? %>
+			  <% for subject in @subjects %>
+			
+			<tr class="<%= cycle('odd', 'even') %>">
+				<td class="center"><%= subject.id%></td>
+				<td><%= subject.position%></td>
+				<td><%= subject.name%></td>
+				<td class="center"><%= status_tag(subject.visible) %></td>
+				<td class="center"><%= subject.pages.size %></td>
+				<td class="actions">
+					<%= link_to("View Pages", {:controller => 'pages', :action => 'list', :subject_id => subject.id }, :class => 'action view_pages') %>
+					<%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+					<%= link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'action edit') %>
+					<%= link_to("Del", {:action => 'delete', :id => subject.id}, :class => 'action delete') %>
+				</td>
+			</tr>
+
+			  <% end %>
+			<% else %>
+			  <p>Nenhum item para listar</p>
+			<% end %>
+
+		
+		</table>
+
+</div>
+
+<div id="name">
+	<%= link_to "Criar novo", {:action => "new"}, :class => 'action new'%>
+</div>
+
+

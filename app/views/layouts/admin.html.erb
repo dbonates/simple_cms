@@ -1,0 +1,41 @@
+<!DOCTYPE html >
+<html>
+	<head>
+	 	<title>SimpleCms Application | <%= @page_title || "Admin Area" %></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+		<meta name="author" content="Daniel Bonates">
+	  	<%= stylesheet_link_tag('public','admin', :media => "all") %>
+	  	<%= javascript_include_tag('teste') %>
+	  	<%= csrf_meta_tags %>
+	</head>
+	<body>
+		
+		<div id="header">
+			<%= image_tag('simple_cms_logo.png', :class =>'logo_img')%><h1></h1>
+		</div>
+		<div class="gomenu">
+			<%= link_to "Menu Principal", :controller => "access", :action => 'menu' %>
+		</div>
+		<div id="main">
+			
+			<% if !flash[:notice].blank? %>
+
+				<div class="notice">
+					<%= flash[:notice] %>
+				</div>
+				<hr/>
+			<% end %>
+			
+			
+			
+			<div id="content"><%= yield %></div>
+			
+		</div>
+		
+		<div id="footer">
+			<p id="copyright">&copy;bonates.com / Daniel Bonates / 2013.</p>
+		</div>
+
+	</body>
+</html>

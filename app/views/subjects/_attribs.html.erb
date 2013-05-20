@@ -1,0 +1,27 @@
+<div id="attributes_list">
+
+
+		<% if !@subject.blank? %>		
+				<table border="0" cellspacing="5" cellpadding="5" summary="subject Details View">
+
+				 			<% @subject.attributes.each do |attrib_name, attrib_val| %>
+                  				<tr class="<%= cycle('odd', 'even') %>">
+								<th><%= attrib_name %>:</th>
+								<% if (attrib_name=='created_at' || attrib_name=='updated_at') %>
+		  									<td><%= attrib_val.to_s(:long) %></td>
+		  								</tr>
+								<% else %>
+	  									<td><%= attrib_val %></td>
+	  								
+								<% end %>
+								</tr>
+							<% end %>
+
+				</table>
+
+		<% else %>
+			  subject vazio?!
+		<% end %>
+
+
+</div>

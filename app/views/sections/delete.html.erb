@@ -1,0 +1,21 @@
+<% @page_title = "Delete Section" %>
+
+<%= link_to "Back to List", :action => "list", :page_id => @page.id %>
+
+<div class="section new">
+	
+	<h1>Delete Section</h1>
+	
+	<%= form_for(:section, :url => {:action => 'destroy', :id => @section.id, :page_id => @page.id}) do |f| %>
+	
+	<h2>Deseja mesmo deletar???</h2>
+	
+		<%= render('attribs', :locals => {:@section => @section})%>
+	
+		<div>
+ 			<%= submit_tag("Detona RALF!") %>
+		</div>
+
+	<% end %>
+
+</div>

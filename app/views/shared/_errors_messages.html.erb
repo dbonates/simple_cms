@@ -1,0 +1,11 @@
+<% if object && object.errors.size > 0 %>
+	<div id="errorExplanation">
+		<h2><%= pluralize(object.errors.size, "error") %> proibiu a gravação desse registro</h2>
+		<p>Problemas ao tentar gravar os seguintes registros:</p>
+		<dl>
+			<% object.errors.full_messages.each do |msg| %>
+				<dt><%= msg %></dt>
+			<% end %>
+		</dl>
+	</div>
+<% end %>

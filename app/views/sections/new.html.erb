@@ -1,0 +1,19 @@
+<% @page_title = "New Section" %>
+
+<%= link_to "Back to List", :action => "list", :page_id => @page.id %>
+
+<div class="section new">
+	
+	<h1>Nova Section</h1>
+	
+	<%= form_for(:section, :url => {:action => 'create', :page_id => @page.id}) do |f| %>
+	
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div>
+ 			<%= submit_tag("Criar") %>
+		</div>
+
+	<% end %>
+
+</div>

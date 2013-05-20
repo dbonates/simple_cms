@@ -1,0 +1,47 @@
+<% @page_title = 'Pages List'%>
+
+<%= link_to "Back to Subject", :controller => 'subjects', :action => "list", :class => 'back-link' %>
+
+<div class="pages list">
+	
+	<h1>Listagem de Pages do Subject: <%= "#{@subject.name}"%></h1>
+	
+		<div id="name">
+			<h3><%= pluralize(@pages.size, 'página') %> <%= pluralize(@pages.size, 'encontrada') %>.</h3>
+		</div>
+	
+		<table border="0" cellspacing="5" cellpadding="5" summary="sumario" class="list">
+			
+			<tr class="header">
+				<th>ID</th>
+				<th>Pos</th>
+				<th>Name</th>
+				<th>Visible</th>
+				<th>Sections</th>
+				<th class="">Actions</th>
+			</tr>
+			<% if !@pages.blank? %>
+					<% for page in @pages %>
+			
+							<tr class="<%= cycle('odd', 'even') %>">
+								<td><%= page.id%></td>
+								<td><%= page.position%></td>
+								<td><%= page.name%></td>
+								<td class="center"><%= status_tag(page.visible) %></td>
+								<td class="center"><%= page.sections.size %></td>
+								<td class="actions">
+									<%= link_to("View Sections", {:controller => 'sections', :action => 'list', :page_id => page.id}, :class => 'action show') %>
+									<%= link_to("Show", {:action => 'show', :subject_id => @subject.id, :id => page.id}, :class => 'action show') %>
+									<%= link_to("Edit", {:action => 'edit', :subject_id => @subject.id, :id => page.id}, :class => 'action edit') %>
+									<%= link_to("Del", {:action => 'delete', :subject_id => @subject.id, :id => page.id}, :class => 'action delete') %>
+								</td>
+							</tr>
+					<% end %>
+			<% end %>
+		</table>
+
+</div>
+
+<div id="name">
+	<%= link_to "Criar nova", {:action => "new", :subject_id => @subject.id}, :class => 'action new'%>
+</div>

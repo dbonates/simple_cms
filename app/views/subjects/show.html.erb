@@ -1,0 +1,13 @@
+<% @page_title = "Subject Show" %>
+
+<%= link_to "Back to List", :action => "list" %>
+
+<div class="subject show">
+
+	<h3>Show Subject</h3>
+
+
+	<%= render(:partial => 'attribs', :locals => {:@subject => @subject}) %>
+
+ 
+</div>

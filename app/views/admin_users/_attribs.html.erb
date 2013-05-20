@@ -1,0 +1,32 @@
+<div id="attributes_list">
+
+
+		<% if !@admin_user.blank? %>		
+				<table border="0" cellspacing="5" cellpadding="5" summary="admin_user delete View">
+
+				 			<% @admin_user.attributes.each do |attrib_name, attrib_val| %>
+								<% if (attrib_name != 'hashed_password' && attrib_name != 'salt' && attrib_name != 'id') %>
+								
+                  							<tr class="<%= cycle('odd', 'even') %>">
+													<th><%= attrib_name %>:</th>
+													<% if (attrib_name=='created_at' || attrib_name=='updated_at') %>
+							  									<td><%= attrib_val.to_s(:long) %></td>
+							  								</tr>
+													<% else %>
+										
+																<td><%= attrib_val %></td>
+									
+													<% end %>
+											</tr>
+								<% end %>
+									
+							<% end %>
+
+				</table>
+
+		<% else %>
+			  admin_user vazio?!
+		<% end %>
+
+
+</div>

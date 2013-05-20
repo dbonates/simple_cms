@@ -1,0 +1,19 @@
+<% @page_title = "New Page" %>
+
+<%= link_to "Back to List", :action => "list", :subject_id => @subject.id %>
+
+<div class="page new">
+	
+	<h1>Nova Page</h1>
+	
+	<%= form_for(:page, :url => {:action => 'create', :subject_id => @subject.id}) do |f| %>
+	
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div>
+ 			<%= submit_tag("Criar") %>
+		</div>
+
+	<% end %>
+
+</div>

@@ -1,0 +1,71 @@
+/* Admin stylesheet       */
+/* loads after public.css */
+
+/* Structure */
+/*#content { padding-left: 100px; padding-right: 100px; }*/
+#content h2 { text-align: center; }
+
+.login form { }
+.menu .identity { text-align: center; }
+.menu ul { margin: 2em; list-style: none; }
+.menu ul li { margin-bottom: 1em; }
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* large action buttons */
+a.action { float: right; padding: 2px 5px; margin: 0 0 1em 1em; 
+  background: #94B26F; color: #4C2516;  border: 1px solid #4C2516;
+  text-decoration: none; font-size: 0.8em; text-align: center; }
+a.action:hover { background: #B6D491; }
+
+/* small action buttons */
+.actions {  }
+.actions a.action { float: left; min-width: 3.5em; 
+  padding: 1px 2px; margin: 2px 5px; font-size: 0.7em; }
+
+/* CRUD */
+.notice { height: 1.25em; padding: 0.5em; text-align: center;
+  background: #B6D491; color: #4C2516; }
+.back-link { font-size: 0.8em; margin-bottom: 1em; }
+.form-buttons { text-align: center; margin: 1em 0; }
+
+
+.list {
+	width: 100%;
+}
+
+.list table { border: 1px solid;}
+.list table tr td { border: none; }
+.show table { clear: both; border: 1px solid; }
+.show table.wide { width: 100%; }
+.show table tr th { white-space: nowrap; }
+.show table tr td { border: none; }
+.edit table, .new table { margin: 0 auto; }
+
+.odd { background: #E5CE69; }
+.even { background: none; }
+
+.section + .section { padding-top: 0.5em; margin-top: 0.5em; 
+  border-top: 1px dotted #666666; }
+
+span.status { display:block; width: 10px; height:10px; margin: 0.25em auto; padding:0; border: 1px solid #000}
+
+span.status.true { background-color: green;}
+span.status.false { background-color: red;}
+
+
+/* Errors */
+.field_with_errors { }
+.field_with_errors label {
+	color: #AA0000;
+}
+.field_with_errors { display: table; padding: 2px; }
+#errorExplanation { width: 400px; padding: 0; margin: 0 auto 1.5em; 
+  border: 1px solid #AA0000; background-color: #FFFFFF; font-size: 12px; }
+#errorExplanation h2 { font-weight: bold; font-size: 12px;
+  padding: 5px 5px 5px 15px; margin: 0; width: 380px;
+  background-color: #AA0000; color: #FFFFFF; }
+#errorExplanation p { color: #333333; margin: 0; padding: 3px 0.5em; }
+#errorExplanation ul { margin-top: 0; }
+#errorExplanation ul li { list-style: square; }

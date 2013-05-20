@@ -1,0 +1,39 @@
+<%= error_messages_for(@section) %>
+
+<table summary="sumario" class="show">
+	
+	<tr>
+		<th>Page ID</th>
+		<td><%= f.select(:page_id, @pages.collect { |p| [p.name, p.id]}) %></td>
+	</tr>
+	
+	<tr>
+		<th>name</th>
+		<td><%= f.text_field(:name) %></td>
+	</tr>
+	
+	<tr>
+		<th>position</th>
+		<td><%= f.select(:position, 1..@section_count) %></td>
+	</tr>
+
+	<tr>
+		<th>visible</th>
+		<td><%= f.check_box(:visible) %></td>
+	</tr>
+	
+	<tr>
+		<th>content_type</th>
+		<td>
+			<%= f.radio_button(:content_type, 'text', {:checked => true}) %>Text
+			<%= f.radio_button(:content_type, 'html') %>Html
+		</td>
+	</tr>
+
+	<tr>
+		<th>content</th>
+		<td><%= f.text_area(:content, :size => '40x10') %></td>
+	</tr>
+
+</table>
+ 

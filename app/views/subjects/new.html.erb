@@ -1,0 +1,20 @@
+<% @page_title = "New Subject" %>
+<%# encoding: utf-8 %>
+
+<%= link_to "Back to List", :action => "list" %>
+
+<div class="subject new">
+	
+	<h1>Novo Subject</h1>
+	
+	<%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
+	
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div>
+ 			<%= submit_tag("Criar...") %>
+		</div>
+
+	<% end %>
+
+</div>

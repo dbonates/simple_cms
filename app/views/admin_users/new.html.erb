@@ -1,0 +1,19 @@
+<% @page_title = "New AdminUser" %>
+
+<%= link_to "Back to List", :action => "list" %>
+
+<div class="udmin_user new">
+	
+	<h1>Novo AdminUser</h1>
+	
+	<%= form_for(:admin_user, :url => {:action => 'create'}) do |f| %>
+	
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div>
+ 			<%= submit_tag("Criar...") %>
+		</div>
+
+	<% end %>
+
+</div>
